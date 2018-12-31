@@ -31,8 +31,8 @@ module.exports = {
   */
   // Styles for each page
   css: [
-    '@/assets/sass/fonts.sass',
-    '@/assets/sass/global.sass',
+    '@/assets/stylus/fonts.styl',
+    '@/assets/stylus/global.styl',
     'node_modules/swiper/dist/css/swiper.min.css',
   ],
 
@@ -52,7 +52,7 @@ module.exports = {
   ],
   // Styles for each component
   sassResources: [
-    '@/assets/sass/variables.sass',
+    '@/assets/stylus/variables.styl',
   ],
   /*
   ** Axios module configuration
