@@ -15,7 +15,7 @@
       .results
         ul.list
           li.item(
-            v-for="item, index in list"
+            v-for="(item, index) in list"
             :class="{'_active': item.value === activeItem.value}"
             @mouseover="handleItemHover(index)"
             @click="handleSelect(item)"
@@ -210,8 +210,8 @@ export default {
     },
 
     getSearchCaption(caption = '') {
-      const wrapQuery = query => `<b>${query}</b>`;
-      const escape = query => query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      const wrapQuery = (query) => `<b>${query}</b>`;
+      const escape = (query) => query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
       const { query } = this;
 
       if (query) {

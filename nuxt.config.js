@@ -45,7 +45,7 @@ module.exports = {
   */
   css: [
     'vue-multiselect/dist/vue-multiselect.min.css',
-    'node_modules/swiper/dist/css/swiper.min.css',
+    'node_modules/swiper/css/swiper.min.css',
     '@/assets/styl/fonts.styl',
     '@/assets/styl/global.styl',
   ],

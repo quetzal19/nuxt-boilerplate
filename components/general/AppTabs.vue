@@ -54,10 +54,10 @@ export default {
       }
       this.tabs = this.tabs.map((obj, i) => {
         if (i === index) {
-          return Object.assign({}, obj, { active: true });
+          return { ...obj, active: true };
         }
 
-        return Object.assign({}, obj, { active: false });
+        return { ...obj, active: false };
       });
       this.$emit('toggle', index);
     },
