@@ -1,4 +1,11 @@
+const fs = require('fs');
+const eslintFriendlyFormatter = require('eslint-friendly-formatter');
 const pkg = require('./package');
+
+const configDefaultPath = './config/config-default.json';
+const configPath = './config/config.json';
+// eslint-disable-next-line import/no-dynamic-require
+const external = fs.existsSync(configPath) ? require(configPath) : require(configDefaultPath);
 
 module.exports = {
   mode: 'universal',
@@ -6,6 +13,10 @@ module.exports = {
   /*
   ** Headers of the page
   */
+  server: {
+    port: 3000,
+  },
+
   head: {
     title: pkg.name,
     meta: [
@@ -14,7 +25,8 @@ module.exports = {
       { hid: 'description', name: 'description', content: pkg.description },
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'shortcut icon', type: 'image/png', href: '/favicon.png' },
+      { rel: 'shortcut icon', type: 'image/x-icon', href: '/favicon.ico' },
     ],
     script: [
       { src: 'https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.2/js/swiper.min.js' },
@@ -28,38 +40,69 @@ module.exports = {
 
   /*
   ** Global CSS
+  **
+  ** Эти стили будут глобально установлены для всего приложении один раз
   */
-  // Styles for each page
   css: [
-    '@/assets/stylus/fonts.styl',
-    '@/assets/stylus/global.styl',
+    'vue-multiselect/dist/vue-multiselect.min.css',
     'node_modules/swiper/dist/css/swiper.min.css',
+    '@/assets/styl/fonts.styl',
+    '@/assets/styl/global.styl',
   ],
 
   /*
   ** Plugins to load before mounting the App
   */
   plugins: [
+    '@/plugins/generalComponents',
+    '@/plugins/axios',
+    {
+      src: '@/plugins/datepicker',
+      mode: 'client',
+    },
   ],
 
   /*
   ** Nuxt.js modules
   */
   modules: [
-    // Doc: https://github.com/nuxt-community/axios-module#usage
+    // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    'nuxt-sass-resources-loader',
+    '@nuxtjs/style-resources',
+    '@nuxtjs/proxy',
+    ['nuxt-svg-sprite-module', {
+      directory: '/assets/ico',
+      options: {
+        // Configuration options:
+        // https://github.com/jkphl/svg-sprite#configuration-basics
+      },
+    }],
+    ['@nuxtjs/component-cache', {
+      max: 10000,
+      maxAge: 1000 * 60 * 60,
+    }],
   ],
-  // Styles for each component
-  sassResources: [
-    '@/assets/stylus/variables.styl',
-  ],
+  /*
+  ** Styles for each component
+  **
+  ** Эти стили будут добавляться в каждый компонент
+  */
+  styleResources: {
+    stylus: [
+      '@/assets/styl/variables.styl',
+      '@/assets/styl/mixins.styl',
+    ],
+  },
   /*
   ** Axios module configuration
   */
   axios: {
+    baseURL: external.baseURL,
+    proxy: true,
     // See https://github.com/nuxt-community/axios-module#options
   },
+
+  proxy: external.proxy,
 
   router: {
     linkActiveClass: '_active',
@@ -69,24 +112,18 @@ module.exports = {
   ** Build configuration
   */
   build: {
+    // Транспилит только в продакшен билде!
+    // Поэтому в дев-билде падает js в IE из-за Свайпера
+    transpile: [
+      'swiper',
+      'dom7',
+      'yallist',
+      'vClickOutside',
+    ],
+
     /*
     ** You can extend webpack config here
     */
-    postcss: {
-      plugins: {
-        'postcss-import': {},
-        'postcss-url': {},
-        autoprefixer: {},
-      },
-    },
-    babel: {
-      presets: [
-        ['@nuxtjs/babel-preset-app', {
-          targets: { ie: 11 },
-        },
-        ],
-      ],
-    },
     extend(config, ctx) {
       // Run ESLint on save
       if (ctx.isDev && ctx.isClient) {
@@ -96,7 +133,7 @@ module.exports = {
           loader: 'eslint-loader',
           exclude: /(node_modules)/,
           options: {
-            formatter: require('eslint-friendly-formatter'),
+            formatter: eslintFriendlyFormatter,
           },
         });
       }
