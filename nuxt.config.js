@@ -28,9 +28,6 @@ module.exports = {
       { rel: 'shortcut icon', type: 'image/png', href: '/favicon.png' },
       { rel: 'shortcut icon', type: 'image/x-icon', href: '/favicon.ico' },
     ],
-    script: [
-      { src: 'https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.2/js/swiper.min.js' },
-    ],
   },
 
   /*
