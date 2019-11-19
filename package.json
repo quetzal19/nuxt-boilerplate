@@ -26,6 +26,7 @@
     "node-cmd": "^3.0.0",
     "nuxt": "^2.10.0",
     "pm2": "^3.4.0",
+    "set-value": "^3.0.1",
     "smoothscroll-polyfill": "^0.4.4",
     "swiper": "^5.0.2",
     "v-click-outside": "^2.1.3",
