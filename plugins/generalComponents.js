@@ -6,7 +6,6 @@ import vClickOutside from 'v-click-outside';
 import VModal from 'vue-js-modal/dist/ssr.index';
 import Multiselect from 'vue-multiselect';
 import Vuebar from 'vuebar';
-import SlideUpDown from 'vue-slide-up-down';
 import Vuelidate from 'vuelidate';
 import VTooltip from 'v-tooltip';
 import VueTheMask from 'vue-the-mask';
@@ -49,7 +48,6 @@ requireComponent.keys().forEach((fileName) => {
 
 // Плагины
 Vue.component('multiselect', Multiselect);
-Vue.component('slide-up-down', SlideUpDown);
 
 Vue.use(vClickOutside);
 Vue.use(VModal, { dynamic: true });
