@@ -1,22 +1,43 @@
-<template lang="pug">
-  .app-tabs(:class="view ? `_${view}` : ''")
-    .heads-wrapper(ref="wrapper")
-      .heads-scroll-container(ref="container")
-        .heads(ref="heads")
-          .head(
-            v-for="(slot, index) in getTabs"
-            :key="index + 1"
-            :class="{'_active': slot.active}"
-            @click="toggleTab(index)"
-          )
-            slot(:name="`head_${index}`")
-    .contents
-      .content(
+<template>
+  <div
+    class="app-tabs"
+    :class="view ? `_${view}` : ''"
+  >
+    <div
+      ref="wrapper"
+      class="heads-wrapper"
+    >
+      <div
+        ref="container"
+        class="heads-scroll-container"
+      >
+        <div
+          ref="heads"
+          class="heads"
+        />
+
+        <div
+          v-for="(slot, index) in getTabs"
+          :key="index + 1"
+          class="head"
+          :class="{'_active': slot.active}"
+          @click="toggleTab(index)"
+        >
+          <slot :name="`head_${index}`" />
+        </div>
+      </div>
+    </div>
+    <div class="contents">
+      <div
         v-for="(slot, index) in getTabs"
-        :key="index + 1"
         v-show="slot.active"
-      )
-        slot(:name="`content_${index}`")
+        :key="index + 1"
+        class="content"
+      >
+        <slot :name="`content_${index}`" />
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>

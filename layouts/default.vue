@@ -1,9 +1,11 @@
-<template lang="pug">
-  .page
-    Header
-    main.main
-      nuxt
-    Footer
+<template>
+  <div class="page">
+    <Header />
+    <main class="main">
+      <nuxt />
+    </main>
+    <Footer />
+  </div>
 </template>
 
 <script>

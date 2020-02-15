@@ -1,9 +1,12 @@
-<template lang="pug">
-  main.main
-    h1 Hello world!
-    app-icon(
+<template>
+  <main class="main">
+    <h1>
+      Hello world!
+    </h1>
+    <app-icon
       name="youtube"
-    )
+    />
+  </main>
 </template>
 
 <script>

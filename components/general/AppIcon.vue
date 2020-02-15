@@ -1,9 +1,10 @@
-<template lang="pug">
-  svg-icon.app-icon(
+<template>
+  <svg-icon
+    class="app-icon"
     :name="name"
     :fill="fill"
     :stroke="stroke"
-  )
+  />
 </template>
 
 <script>

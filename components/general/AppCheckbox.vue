@@ -1,19 +1,32 @@
-<template lang="pug">
-  label.app-checkbox(:class="mod")
-    input.control(
+<template>
+  <label
+    class="app-checkbox"
+    :class="mod"
+  >
+    <input
+      v-model="innerChecked"
+      class="control"
       :name="name"
       :value="value"
       type="checkbox"
       :disabled="disabled"
       @change="change"
-      v-model="innerChecked"
-    )
-    .fake
-      app-icon.icon(
+    >
+    <span class="fake">
+      <app-icon
+        class="icon"
         name="check"
-      )
-    .text(v-if="this.$slots.default")
-      slot
+      />
+    </span>
+
+    <span
+      v-if="this.$slots.default"
+      class="text"
+    >
+      <slot />
+    </span>
+
+  </label>
 </template>
 
 <script>

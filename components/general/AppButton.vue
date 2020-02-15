@@ -1,10 +1,12 @@
-<template lang="pug">
-  button.app-button(
+<template>
+  <button
+    class="app-button"
     :class="mod"
     :disabled="disabled"
     @click="handleClick"
-  )
-    slot
+  >
+    <slot />
+  </button>
 </template>
 
 <script>

@@ -1,18 +1,27 @@
-<template lang="pug">
-  component.app-radio(
+<template>
+  <component
     :is="wrapper"
+    class="app-radio"
     :class="mod"
-  )
-    input.control(
+  >
+    <input
+      v-model="innerChecked"
+      class="control"
       type="radio"
       :name="name"
       :disabled="disabled"
       :value="value"
-      v-model="innerChecked"
-    )
-    .fake: .circle
-    .text(v-if="this.$slots.default")
-      slot
+    >
+    <div class="fake">
+      <div class="circle" />
+    </div>
+    <div
+      v-if="this.$slots.default"
+      class="text"
+    >
+      <slot />
+    </div>
+  </component>
 </template>
 
 <script>

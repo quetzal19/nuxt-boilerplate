@@ -1,9 +1,11 @@
-<template lang="pug">
-  nuxt-link.app-link(
+<template>
+  <nuxt-link
+    class="app-link"
     :class="mod"
     :to="to"
-  )
-    slot
+  >
+    <slot />
+  </nuxt-link>
 </template>
 
 <script>

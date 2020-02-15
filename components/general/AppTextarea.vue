@@ -1,20 +1,29 @@
-<template lang="pug">
-  .app-textarea(
+<template>
+  <div
+    class="app-textarea"
     :class="[{'_valid': valid && !error, '_error': error}, mod]"
-  )
-    textarea.control(
+  >
+    <textarea
       ref="textarea"
+      v-model="innerValue"
+      cols="30"
+      class="control"
       :rows="rows"
       :placeholder="placeholder"
       :name="name"
       :disabled="disabled"
       :maxlength="maxlength"
-      v-model="innerValue"
       @input="inputHandler"
       @blur="$emit('blur')"
       @focus="$emit('focus')"
-    )
-    .error(v-if="error") {{ error }}
+    />
+    <div
+      v-if="error"
+      class="error"
+    >
+      {{ error }}
+    </div>
+  </div>
 </template>
 
 <script>
