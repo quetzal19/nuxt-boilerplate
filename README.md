@@ -38,3 +38,8 @@ $ yarn deploy
 
 Более подробно про PM2: [PM2](http://pm2.keymetrics.io/)
 Более подробно про Nuxt: [Nuxt.js docs](https://nuxtjs.org).
+
+## SVG
+
+Поставлен новый плагин, так что отмечаем баги.
+- Если вдруг нет цвета при установлении currentColor для иконки на IE11, можно указать цвет в fill или stroke что необходимо.

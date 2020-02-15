@@ -57,6 +57,10 @@ module.exports = {
       src: '@/plugins/datepicker',
       mode: 'client',
     },
+    {
+      src: '@/plugins/svg4everybody.js',
+      mode: 'client',
+    },
   ],
 
   /*
@@ -67,18 +71,21 @@ module.exports = {
     '@nuxtjs/axios',
     '@nuxtjs/style-resources',
     '@nuxtjs/proxy',
-    ['nuxt-svg-sprite-module', {
-      directory: '/assets/ico',
-      options: {
-        // Configuration options:
-        // https://github.com/jkphl/svg-sprite#configuration-basics
-      },
-    }],
+    '@nuxtjs/svg-sprite',
     ['@nuxtjs/component-cache', {
       max: 10000,
       maxAge: 1000 * 60 * 60,
     }],
   ],
+
+  /*
+  * SVG
+  */
+  svgSprite: {
+    input: '~/assets/ico/',
+    elementClass: 'svg-icon',
+  },
+
   /*
   ** Styles for each component
   **

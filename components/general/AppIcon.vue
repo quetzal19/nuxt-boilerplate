@@ -1,11 +1,9 @@
 <template lang="pug">
-  svg.app-icon(
+  svg-icon.app-icon(
+    :name="name"
     :fill="fill"
     :stroke="stroke"
   )
-    use(
-      :xlink:href="`#icon-${name}`"
-    )
 </template>
 
 <script>
