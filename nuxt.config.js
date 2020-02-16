@@ -70,6 +70,9 @@ module.exports = {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxtjs/style-resources',
+    ['@nuxtjs/stylelint-module', {
+      // fix: true,
+    }],
     '@nuxtjs/proxy',
     '@nuxtjs/svg-sprite',
     ['@nuxtjs/component-cache', {
@@ -94,7 +97,8 @@ module.exports = {
   styleResources: {
     sass: [
       '@/assets/styles/variables.sass',
-      '@/assets/styles/mixins/*.sass',
+      '@/assets/styles/mixins/_media-query.sass',
+      '@/assets/styles/mixins/_ui.sass',
     ],
   },
   /*
