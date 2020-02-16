@@ -93,93 +93,93 @@ export default {
 };
 </script>
 
-<style lang="stylus" scoped>
+<style lang="sass" scoped>
 .app-checkbox
-  position relative
-  cursor pointer
-  display flex
-  align-items center
-  font-size 13px
-  color $grayLight
+  position: relative
+  cursor: pointer
+  display: flex
+  align-items: center
+  font-size: 13px
+  color: $grayLight
 
   &._big
 
     .fake
-      width 24px
-      height 24px
-      border-color #cdd5dc
-      border-radius 3px
+      width: 24px
+      height: 24px
+      border-color: #cdd5dc
+      border-radius: 3px
 
     .icon
-      width 15px
-      height 14px
+      width: 15px
+      height: 14px
 
 .control
-  position absolute
-  width 1px
-  height 1px
-  overflow hidden
-  opacity 0
-  visibility hidden
+  position: absolute
+  width: 1px
+  height: 1px
+  overflow: hidden
+  opacity: 0
+  visibility: hidden
 
 .fake
-  display flex
-  align-items center
-  justify-content center
-  border-radius 1px
-  border 1px solid #ececec
-  width 14px
-  height 14px
-  min-width 12px
-  background-color #f
+  display: flex
+  align-items: center
+  justify-content: center
+  border-radius: 1px
+  border: 1px solid #ececec
+  width: 14px
+  height: 14px
+  min-width: 12px
+  background-color: #fff
 
 .icon
-  opacity 0
-  transition .2s
-  width 10px
-  height 9px
-  color #229595
+  opacity: 0
+  transition: .2s
+  width: 10px
+  height: 9px
+  color: #229595
 
 .control:checked ~ .fake .icon
-  opacity 1
+  opacity: 1
 
 .control[disabled] ~ .fake
-  background-color #f8
+  background-color: #f8f8f8
 
 .text
-  white-space nowrap
-  margin 0 0 0 14px
-  font-weight 500
-  flex-grow 1
+  white-space: nowrap
+  margin: 0 0 0 14px
+  font-weight: 500
+  flex-grow: 1
 
 .app-checkbox._between .text
-  display flex
-  align-items center
-  justify-content space-between
-  width 100%
+  display: flex
+  align-items: center
+  justify-content: space-between
+  width: 100%
 
-+tablet()
+@include tablet()
   .app-checkbox
 
     &._big
 
       .fake
-        width 22px
-        height 22px
-        min-width 22px
-        border-color #ececec
-        border-radius none
+        width: 22px
+        height: 22px
+        min-width: 22px
+        border-color: #ececec
+        border-radius: 0
 
       .icon
-        width 12px
-        height 11px
+        width: 12px
+        height: 11px
 
   .fake
-    width 22px
-    height 22px
-    min-width 22px
+    width: 22px
+    height: 22px
+    min-width: 22px
 
   .icon
-    width 12px
-    height 11px
+    width: 12px
+    height: 11px
 </style>

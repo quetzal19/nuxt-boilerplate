@@ -101,86 +101,87 @@ export default {
 };
 </script>
 
-<style lang="stylus" scoped>
+<style lang="sass" scoped>
   .app-input
-    position relative
-    font-size 14px
-    font-weight 500
+    position: relative
+    font-size: 14px
+    font-weight: 500
 
     &._valid .control:focus
-      border-color #04b400
+      border-color: #04b400
 
     &._error .control:focus
-      border-color #e4002b
+      border-color: #e4002b
 
   .control
-    font-family 'Montserrat'
-    font-weight inherit
-    font-size inherit
-    text-transform inherit
-    line-height 20px
-    border 1px solid #c7d0d8
-    border-radius 2px
-    padding 11px 18px
-    min-height 44px
-    -webkit-appearance none
-    outline none
-    display block
-    width 100%
-    transition border-color .5s cubic-bezier(.23, 1, .32, 1),
-    color .5s cubic-bezier(.23, 1, .32, 1),
-    background-color .5s cubic-bezier(.23, 1, .32, 1)
-    resize vertical
-    background-color #fff
-    text-overflow ellipsis
-    color #0
+    font-weight: inherit
+    font-size: inherit
+    text-transform: inherit
+    line-height: 20px
+    border: 1px solid #c7d0d8
+    border-radius: 2px
+    padding: 11px 18px
+    min-height: 44px
+    -webkit-appearance: none
+    outline: none
+    display: block
+    width: 100%
+    transition:
+      border-color: .5s cubic-bezier(.23, 1, .32, 1)
+      color: .5s cubic-bezier(.23, 1, .32, 1)
+      background-color: .5s cubic-bezier(.23, 1, .32, 1)
+
+    resize: vertical
+    background-color: #fff
+    text-overflow: ellipsis
+    color: #000
 
     +placeholder()
-      color $grayLight
-      font-weight normal
+      color: $grayLight
+      font-weight: normal
 
     &:focus
-      border-color #0a50a5
+      border-color: #0a50a5
 
     &[type=number]::-webkit-inner-spin-button,
     &[type=number]::-webkit-outer-spin-button
-      -webkit-appearance none
-      margin 0
+      -webkit-appearance: none
+      margin: 0
 
     &[type=number]
-      -moz-appearance textfield
+      -moz-appearance: textfield
 
     &[disabled]
-      background-color #f8
+      background-color: #f8f8f8
 
   .icon
-    position absolute
-    top 0
-    bottom 0
-    right 0
-    width 40px
-    display flex
-    align-items center
-    justify-content center
-    margin auto
+    position: absolute
+    top: 0
+    bottom: 0
+    right: 0
+    width: 40px
+    display: flex
+    align-items: center
+    justify-content: center
+    margin: auto
 
     &._green
-      color #04b400
+      color: #04b400
 
     &._red .app-icon
-      fill #e4002b
+      fill: #e4002b
 
-  +tablet()
+  @include tablet()
     .app-input
-      font-size 12px
+      font-size: 12px
 
     .control
-      min-height 36px
-      padding 7px 12px
+      min-height: 36px
+      padding: 7px 12px
 
     .app-input._subscribe
 
       .control
-        padding 11px 18px
-        min-height 44px
+        padding: 11px 18px
+        min-height: 44px
 </style>
