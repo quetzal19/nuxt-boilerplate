@@ -43,8 +43,8 @@ module.exports = {
   css: [
     'vue-multiselect/dist/vue-multiselect.min.css',
     'node_modules/swiper/css/swiper.min.css',
-    '@/assets/styles/fonts.sass',
-    '@/assets/styles/global.sass',
+    '@/assets/styles/fonts.scss',
+    '@/assets/styles/global.scss',
   ],
 
   /*
@@ -95,10 +95,10 @@ module.exports = {
   ** Эти стили будут добавляться в каждый компонент
   */
   styleResources: {
-    sass: [
-      '@/assets/styles/variables.sass',
-      '@/assets/styles/mixins/_media-query.sass',
-      '@/assets/styles/mixins/_ui.sass',
+    scss: [
+      '@/assets/styles/_variables.scss',
+      '@/assets/styles/mixins/_media-query.scss',
+      '@/assets/styles/mixins/_ui.scss',
     ],
   },
   /*
