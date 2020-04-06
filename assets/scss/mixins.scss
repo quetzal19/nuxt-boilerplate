@@ -1,0 +1,117 @@
+@mixin no-select {
+  pointer-events: none;
+  user-select: none;
+}
+
+@mixin a-reset {
+  text-decoration: none;
+  color: inherit;
+}
+
+@mixin ul-reset {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@mixin button-reset {
+  padding: 0;
+  border: 0;
+  background: none;
+  outline: none;
+  cursor: pointer;
+}
+
+@mixin absolute-centered {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+}
+
+@mixin placeholder {
+
+  &::-webkit-input-placeholder {
+    @content;
+  }
+
+  &::-moz-placeholder {
+    @content;
+  }
+
+  &:-moz-placeholder {
+    @content;
+  }
+
+  &:-ms-input-placeholder {
+    @content;
+  }
+}
+
+@mixin pre-tablet {
+  @media (max-width:1210px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width:1179px) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (max-width:767px) {
+    @content;
+  }
+}
+
+@mixin mobile-l {
+  @media (max-width:424px) {
+    @content;
+  }
+}
+
+@mixin mobile-m {
+  @media (max-width:374px) {
+    @content;
+  }
+}
+
+@mixin desktop-only {
+  @media (min-width:1180px) {
+    @content;
+  }
+}
+
+@mixin top-line {
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: -20vw;
+    left: -20vw;
+    display: block;
+    width: 140vw;
+    height: 1px;
+    background: $green;
+  }
+}
+
+@mixin bottom-line {
+
+  &:after {
+    content: "";
+    position: absolute;
+    right: -20vw;
+    bottom: 0;
+    left: -20vw;
+    display: block;
+    width: 140vw;
+    height: 1px;
+    background: $green;
+  }
+}
