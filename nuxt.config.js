@@ -1,6 +1,5 @@
 import eslintFriendlyFormatter from 'eslint-friendly-formatter';
-
-const fs = require('fs');
+import fs from 'fs';
 
 const envName = fs.existsSync('.env') ? '.env' : '.env.example';
 
@@ -97,7 +96,7 @@ export default {
     '@nuxtjs/dotenv',
     // Doc: https://www.npmjs.com/package/@nuxtjs/svg-sprite
     '@nuxtjs/svg-sprite',
-    // Doc: https://github.com/nuxt-community/modules/tree/master/packages/component-cache
+    // Doc: https://www.npmjs.com/package/@nuxtjs/component-cache
     ['@nuxtjs/component-cache', {
       max: 10000,
       maxAge: 1000 * 60 * 60,
@@ -168,9 +167,10 @@ export default {
     ** You can extend webpack config here
     */
     extend(config, { isDev, isClient, loaders: { vue } }) {
+      const Vueobject = vue;
       if (isClient) {
-        vue.transformAssetUrls.img = ['data-src', 'src'];
-        vue.transformAssetUrls.source = ['data-srcset', 'srcset'];
+        Vueobject.transformAssetUrls.img = ['data-src', 'src'];
+        Vueobject.transformAssetUrls.source = ['data-srcset', 'srcset'];
       }
       if (isDev && isClient) {
         config.module.rules.push({

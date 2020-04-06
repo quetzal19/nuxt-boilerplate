@@ -4,7 +4,8 @@ function isEmpty(v) {
 
 export default function isHTTPS(req, xForwardedProto = true) {
   // Test using req.connection.encrypted
-  const encrypted = isEmpty(req.connection.encrypted) ? null : req.connection.encrypted === true;
+  const encrypted = isEmpty(req.connection.encrypted)
+    ? null : req.connection.encrypted === true;
   if (encrypted) {
     return true;
   }
@@ -16,7 +17,8 @@ export default function isHTTPS(req, xForwardedProto = true) {
   }
 
   // Test using x-forwarded-proto header
-  const httpsXforwarded = (!xForwardedProto || isEmpty(req.headers['x-forwarded-proto'])) ? null
+  const httpsXforwarded = (!xForwardedProto
+    || isEmpty(req.headers['x-forwarded-proto'])) ? null
     : req.headers['x-forwarded-proto'].includes('https');
   if (httpsXforwarded) {
     return true;

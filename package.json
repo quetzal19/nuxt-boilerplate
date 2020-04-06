@@ -6,7 +6,7 @@
   "private": true,
   "scripts": {
     "dev": "nuxt",
-    "dev:host": "cross-env NUXT_HOST=0.0.0.0 nuxt",
+    "dev:host": "cross-env NzXT_HOST=0.0.0.0 nuxt",
     "dev:all": "concurrently --kill-others \"yarn dev\" \"yarn docs:dev\"",
     "build": "nuxt build",
     "build-test": "nuxt build -a",

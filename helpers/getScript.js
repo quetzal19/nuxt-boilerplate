@@ -5,7 +5,8 @@ export default function (source) {
     script.async = 1;
 
     script.onreadystatechange = (_, isAbort) => {
-      if (isAbort || !script.readyState || /loaded|complete/.test(script.readyState)) {
+      if (isAbort || !script.readyState
+        || /loaded|complete/.test(script.readyState)) {
         script.onreadystatechange = null;
         script.onload = null;
         script = undefined;

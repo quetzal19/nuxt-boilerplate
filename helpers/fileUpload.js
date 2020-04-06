@@ -9,7 +9,7 @@ export const getBase64Image = (img, type) => {
   return canvas.toDataURL(type);
 };
 
-export const getImage = file => new Promise((resolve) => {
+export const getImage = file => new Promise(resolve => {
   const fReader = new FileReader();
   const img = document.createElement('img');
 
