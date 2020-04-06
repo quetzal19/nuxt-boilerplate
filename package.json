@@ -6,14 +6,15 @@
   "private": true,
   "scripts": {
     "dev": "nuxt",
-    "dev:host": "cross-env NzXT_HOST=0.0.0.0 nuxt",
+    "dev:host": "cross-env NUXT_HOST=0.0.0.0 nuxt",
     "dev:all": "concurrently --kill-others \"yarn dev\" \"yarn docs:dev\"",
     "build": "nuxt build",
-    "build-test": "nuxt build -a",
+    "build:test": "nuxt build -a",
     "start": "nuxt start",
-    "generate": "nuxt generate",
+    "start:host": "cross-env NUXT_HOST=0.0.0.0 nuxt start",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
+    "generate": "nuxt generate",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "test": "jest",
     "deploy": "./node_modules/.bin/env-cmd ./scripts/deploy.sh"
@@ -28,18 +29,18 @@
     }
   },
   "dependencies": {
+    "nuxt": "^2.0.0",
     "@nuxtjs/axios": "^5.3.6",
     "@nuxtjs/component-cache": "^1.1.5",
     "@nuxtjs/dotenv": "^1.4.0",
     "@nuxtjs/pwa": "^3.0.0-0",
     "@nuxtjs/svg-sprite": "^0.4.10",
-    "element-ui": "^2.4.11",
-    "lazysizes": "^5.2.0",
-    "nuxt": "^2.0.0",
-    "nuxt-user-agent": "^1.2.2",
     "svg4everybody": "^2.1.9",
+    "lazysizes": "^5.2.0",
+    "nuxt-user-agent": "^1.2.2",
+    "vue-mq": "^1.0.1",
     "swiper": "^5.3.6",
-    "vue-mq": "^1.0.1"
+    "element-ui": "^2.4.11"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^2.0.0",
