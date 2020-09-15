@@ -25,7 +25,20 @@
   </div>
 </template>
 <script>
-export default {};
+export default {
+  computed: {
+    seoObject() {
+      return {
+        title: 'Главная страница Boilerplate',
+        description: 'Описание главной Бойлерплейта',
+      };
+    },
+  },
+
+  head() {
+    return this.$setMeta(this.$store, this.seoObject);
+  },
+};
 </script>
 <style lang="scss" scoped>
 .default {

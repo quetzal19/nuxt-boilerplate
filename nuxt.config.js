@@ -55,6 +55,7 @@ export default {
   plugins: [
     // Doc: https://github.com/AlexandreBonaventure/vue-mq
     '@/plugins/device-detect',
+    '@/plugins/set-meta',
     '@/plugins/generalComponents',
     // Doc: https://element.eleme.io/#/en-US/
     '@/plugins/element-ui',
