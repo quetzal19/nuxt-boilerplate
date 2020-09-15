@@ -3,6 +3,7 @@ import fs from 'fs';
 
 const envName = fs.existsSync('.env') ? '.env' : '.env.example';
 
+// eslint-disable-next-line import/no-extraneous-dependencies
 require('dotenv').config({
   path: envName,
 });

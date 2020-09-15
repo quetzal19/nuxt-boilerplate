@@ -14,6 +14,7 @@ module.exports = {
   ],
   // add your custom rules here
   rules: {
+    'vue/no-v-html': 'off',
     'arrow-parens': ['error', 'as-needed'],
     'max-len': [
       'error',

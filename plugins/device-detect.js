@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
 import Vue from 'vue';
 // Doc: https://github.com/AlexandreBonaventure/vue-mq
 import VueMq from 'vue-mq';
