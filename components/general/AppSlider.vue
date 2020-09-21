@@ -11,6 +11,12 @@ import Swiper from 'swiper';
 
 export default {
 
+  /**
+   * @module general/AppSlider
+   * @desc Позволяет использовать swiper без написания лишнего кода
+   * @vue-prop { Object } options - Конфиг для слайдера
+   */
+
   props: {
     options: {
       type: Object,

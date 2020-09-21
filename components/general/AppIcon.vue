@@ -12,6 +12,15 @@
   </div>
 </template>
 <script>
+/**
+ * @module general/AppIcon
+ * @desc Данный компонент позволяет автоматизировать работу с иконками
+ * @vue-prop { String } [mod=''] mod - Класс который ТОЧНО применится к корневому элементу
+ * @vue-prop { String } name - Название иконки
+ * @vue-prop { String|Number } [width='100%'] width - Ширина иконки в px
+ * @vue-prop { String|Number } [height='100%'] height - Высота иконки в px
+ */
+
 export default {
 
   props: {

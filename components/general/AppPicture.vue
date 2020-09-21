@@ -19,8 +19,15 @@
   </div>
 </template>
 <script>
-export default {
+/**
+ * @module general/AppPicture
+ * @desc Данный компонент позволяет автоматизировать работу с картинками
+ * @vue-prop { Object } [mod=''] src - Набор путей к картинке
+ * @vue-prop { String } alt - Тег альт для картинки
+ * @vue-prop { Boolean } [local=true] local - тут должен Дима дописать. Я не знаю :D
+ */
 
+export default {
   props: {
     src: {
       type: String,

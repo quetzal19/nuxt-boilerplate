@@ -21,10 +21,14 @@
     >
       current device: {{ $mq }}
     </p>
-    <el-button>open docs</el-button>
   </div>
 </template>
 <script>
+/**
+ * @module pages/index
+ * @vue-computed {Object} seoObject - Объект настройки SEO для данной страницы
+ */
+
 export default {
   computed: {
     seoObject() {
@@ -35,6 +39,10 @@ export default {
     },
   },
 
+  /**
+   * Подключение SEO с помощью тега функция head прдоставляемой Nuxt
+   * @returns {{meta, title: *}}
+   */
   head() {
     return this.$setMeta(this.$store, this.seoObject);
   },

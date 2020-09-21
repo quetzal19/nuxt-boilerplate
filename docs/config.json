@@ -1,0 +1,30 @@
+{
+  "plugins": [
+    "node_modules/jsdoc-vuejs",
+    "plugins/markdown"
+  ],
+  "recurseDepth": 10,
+  "source": {
+    "includePattern": "\\.(vue|js)$",
+    "include": [
+      "."
+    ],
+    "exclude": ["node_modules"]
+  },
+  "opts": {
+    "recurse": true,
+    "destination": "./docs/generated",
+    "template": "node_modules/tui-jsdoc-template"
+  },
+  "sourceType": "module",
+  "tags": {
+    "allowUnknownTags": true,
+    "dictionaries": ["jsdoc","closure"]
+  },
+  "templates": {
+    "name": "Документация к проекту Ratio",
+    "footerText": "Ratio - Разработка программных продуктов на заказ!",
+    "cleverLinks": false,
+    "monospaceLinks": false
+  }
+}

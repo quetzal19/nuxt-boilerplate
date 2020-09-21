@@ -1,6 +1,12 @@
 /* eslint-disable */
 import Vue from 'vue';
 
+/**
+ * @module plugins/set-meta
+ * @desc Плагин добавляет в Nuxt 2 метода для работы с SEO тегами
+ * @param context { Object } - Стандартный объект контекста Nuxt
+ */
+
 export default (context) => {
   /**
    * Генерация seo тегов без доп операций
@@ -37,6 +43,7 @@ export default (context) => {
     let title = '';
     let description = '';
 
+    // Код ниже работает только при установленном i18n!
     if (locale) {
       if (locale === 'ru') {
         title = `${seo.title}: Дефолтное дополнение к тайтлу с i18n`;
@@ -137,9 +144,8 @@ export default (context) => {
   }
 
   /**
-   * Генерация тега alternate для разных языков если установлен i18n
-   * @param host
-   * @returns {({hreflang: string, rel: string, href: string}|{hreflang: string, rel: string, href: string})[]}
+   * Генерация тега alternate для разных языков **ЕСЛИ УСТАНОВЛЕН i18n**
+   * @param host {String} - Корневой адрес для тега
    */
   function setLangLink(host) {
     return [
