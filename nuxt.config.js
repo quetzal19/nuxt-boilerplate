@@ -2,15 +2,13 @@ import eslintFriendlyFormatter from 'eslint-friendly-formatter';
 import fs from 'fs';
 
 const envName = fs.existsSync('.env') ? '.env' : '.env.example';
-console.log(process.env.GOOGLE_ANALYTICS_ECOMMERCE);
+
 // eslint-disable-next-line import/no-extraneous-dependencies
 require('dotenv').config({
   path: envName,
 });
 
 export default {
-  mode: 'universal',
-
   server: {
     port: process.env.SERVER_PORT,
   },
@@ -89,9 +87,8 @@ export default {
     '@nuxtjs/stylelint-module',
     // Doc: Дмитрий Куликов :)
     '~/modules/imageWebPConvert.js',
-    // Подключение gtm если в .env передан gtm
-    ...(process.env.GTM ? ['@nuxtjs/gtm'] : []),
     // Подключение аналитики, если передан GOOGLE_ANALYTICS, но не передан GTM
+    // https://github.com/nuxt-community/analytics-module
     ...(process.env.GOOGLE_ANALYTICS && !process.env.GTM ? ['@nuxtjs/google-analytics'] : []),
   ],
 
@@ -99,8 +96,9 @@ export default {
    * Настройка GTM
    */
   ...(process.env.GTM ? {
-    gtm: {
-      id: 'process.env.GTM',
+    'google-gtag': {
+      id: process.env.GTM,
+      debug: process.env.DEBUG === 'true',
     },
   } : {}),
 
@@ -110,6 +108,10 @@ export default {
   ...(process.env.GOOGLE_ANALYTICS && !process.env.GTM ? {
     googleAnalytics: {
       id: process.env.GOOGLE_ANALYTICS,
+      debug: {
+        enabled: process.env.DEBUG === 'true',
+        sendHitTask: process.env.DEBUG === 'true',
+      },
       ecommerce: {
         enabled: process.env.GOOGLE_ANALYTICS_ECOMMERCE === 'true',
       },
@@ -138,6 +140,9 @@ export default {
       max: 10000,
       maxAge: 1000 * 60 * 60,
     }],
+    // Подключение gtm если в .env передан gtm
+    // https://github.com/nuxt-community/google-gtag
+    ...(process.env.GTM ? ['@nuxtjs/google-gtag'] : []),
   ],
   /*
    ** Styles for each component

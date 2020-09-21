@@ -31,7 +31,7 @@
     "@nuxtjs/axios": "^5.3.6",
     "@nuxtjs/component-cache": "^1.1.5",
     "@nuxtjs/dotenv": "^1.4.0",
-    "@nuxtjs/gtm": "^2.3.2",
+    "@nuxtjs/google-gtag": "^1.0.4",
     "@nuxtjs/pwa": "^3.0.0-0",
     "@nuxtjs/svg-sprite": "^0.4.10",
     "element-ui": "^2.4.11",
