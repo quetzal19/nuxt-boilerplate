@@ -2,10 +2,10 @@ module.exports = {
   root: true,
   env: {
     browser: true,
-    node: true
+    node: true,
   },
   parserOptions: {
-    parser: 'babel-eslint'
+    parser: '@babel/eslint-parser',
   },
   extends: [
     '@nuxtjs',
@@ -19,11 +19,12 @@ module.exports = {
     'max-len': [
       'error',
       {
-        'code': 120,
-        'ignorePattern': '<\s*path[^>]*\/>',
-        'ignoreComments': true,
-        'ignoreUrls': true,
-      }
+        code: 120,
+        // eslint-disable-next-line no-useless-escape
+        ignorePattern: '<\s*path[^>]*\/>',
+        ignoreComments: true,
+        ignoreUrls: true,
+      },
     ],
     'global-require': 0,
     'import/no-dynamic-require': 0,
@@ -31,7 +32,7 @@ module.exports = {
     // don't require .vue extension when importing
     'import/extensions': ['error', 'always', {
       js: 'never',
-      vue: 'never'
+      vue: 'never',
     }],
     // disallow reassignment of function parameters
     // disallow parameter object manipulation except for specific exclusions
@@ -40,12 +41,12 @@ module.exports = {
       ignorePropertyModificationsFor: [
         'state', // for vuex state
         'acc', // for reduce accumulators
-        'e' // for e.returnvalue
-      ]
+        'e', // for e.returnvalue
+      ],
     }],
     // allow optionalDependencies
     'import/no-extraneous-dependencies': ['error', {
-      optionalDependencies: ['test/unit/index.js']
+      optionalDependencies: ['test/unit/index.js'],
     }],
     'no-underscore-dangle': 0,
     // allow debugger during development
@@ -71,8 +72,8 @@ module.exports = {
     }],
     'vue/no-async-in-computed-properties': ['error'],
     'vue/no-duplicate-attributes': ['error', {
-      'allowCoexistClass': true,
-      'allowCoexistStyle': true
+      allowCoexistClass: true,
+      allowCoexistStyle: true,
     }],
     'vue/no-parsing-error': ['error', {
       'abrupt-closing-of-empty-comment': true,
@@ -110,13 +111,13 @@ module.exports = {
       'end-tag-with-trailing-solidus': true,
       'non-void-html-element-start-tag-with-trailing-solidus': false,
       'x-invalid-end-tag': true,
-      'x-invalid-namespace': true
+      'x-invalid-namespace': true,
     }],
     'vue/no-shared-component-data': ['error'],
     'vue/no-side-effects-in-computed-properties': ['error'],
     'vue/no-textarea-mustache': ['error'],
     'vue/no-unused-components': ['error', {
-      'ignoreWhenBindingPresent': false,
+      ignoreWhenBindingPresent: false,
     }],
     'vue/no-unused-vars': ['error'],
     'vue/no-use-v-if-with-v-for': ['error'],
@@ -144,7 +145,7 @@ module.exports = {
     'vue/attribute-hyphenation': ['error', 'always'],
     'vue/html-closing-bracket-newline': ['error', {
       singleline: 'never',
-      multiline: 'always'
+      multiline: 'always',
     }],
     'vue/html-closing-bracket-spacing': ['error', {
       startTag: 'never',
@@ -157,10 +158,10 @@ module.exports = {
     'vue/html-self-closing': ['error', {
       html: {
         normal: 'always',
-        void: 'never'
+        void: 'never',
       },
       svg: 'always',
-      math: 'always'
+      math: 'always',
     }],
     'vue/max-attributes-per-line': ['error', {
       singleline: 2,
@@ -172,7 +173,7 @@ module.exports = {
     'vue/multiline-html-element-content-newline': ['error'],
     'vue/mustache-interpolation-spacing': ['error', 'always'],
     'vue/no-multi-spaces': ['error', {
-      ignoreProperties: false
+      ignoreProperties: false,
     }],
     'vue/no-spaces-around-equal-signs-in-attribute': ['error'],
     'vue/no-template-shadow': ['error'],
@@ -183,7 +184,7 @@ module.exports = {
     'vue/v-bind-style': ['error', 'shorthand'],
     'vue/v-on-style': ['error', 'shorthand'],
     'vue/order-in-components': ['error', {
-      'order': [
+      order: [
         'el',
         'name',
         'parent',
@@ -201,10 +202,10 @@ module.exports = {
         'LIFECYCLE_HOOKS',
         'methods',
         ['template', 'render'],
-        'renderError'
-      ]
+        'renderError',
+      ],
     }],
     'vue/this-in-template': ['error', 'never'],
     'vue/component-name-in-template-casing': ['error', 'kebab-case'],
   },
-}
+};

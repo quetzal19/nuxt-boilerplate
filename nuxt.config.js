@@ -2,7 +2,7 @@ import eslintFriendlyFormatter from 'eslint-friendly-formatter';
 import fs from 'fs';
 
 const envName = fs.existsSync('.env') ? '.env' : '.env.example';
-
+console.log(process.env.GOOGLE_ANALYTICS_ECOMMERCE);
 // eslint-disable-next-line import/no-extraneous-dependencies
 require('dotenv').config({
   path: envName,
@@ -70,6 +70,14 @@ export default {
       src: '@/plugins/vue-lazysizes',
       ssr: false,
     },
+
+    // Ниже идут плагины модулей аналитики
+    ...(process.env.YANDEX_METRICA ? [
+      {
+        src: '@/plugins/yandexMetricaInit',
+        ssr: false,
+      },
+    ] : [{}]),
   ],
   /*
   ** Nuxt.js dev-modules
@@ -81,7 +89,34 @@ export default {
     '@nuxtjs/stylelint-module',
     // Doc: Дмитрий Куликов :)
     '~/modules/imageWebPConvert.js',
+    // Подключение gtm если в .env передан gtm
+    ...(process.env.GTM ? ['@nuxtjs/gtm'] : []),
+    // Подключение аналитики, если передан GOOGLE_ANALYTICS, но не передан GTM
+    ...(process.env.GOOGLE_ANALYTICS && !process.env.GTM ? ['@nuxtjs/google-analytics'] : []),
   ],
+
+  /*
+   * Настройка GTM
+   */
+  ...(process.env.GTM ? {
+    gtm: {
+      id: 'process.env.GTM',
+    },
+  } : {}),
+
+  /*
+   * Настройка гугл аналитики
+   */
+  ...(process.env.GOOGLE_ANALYTICS && !process.env.GTM ? {
+    googleAnalytics: {
+      id: process.env.GOOGLE_ANALYTICS,
+      ecommerce: {
+        enabled: process.env.GOOGLE_ANALYTICS_ECOMMERCE === 'true',
+      },
+      checkDuplicatedScript: true,
+    },
+  } : {}),
+
   /*
   ** Nuxt.js modules
   */
