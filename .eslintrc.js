@@ -19,7 +19,10 @@ module.exports = {
     'max-len': [
       'error',
       {
-        'ignorePattern': '<\s*path[^>]*\/>'
+        'code': 120,
+        'ignorePattern': '<\s*path[^>]*\/>',
+        'ignoreComments': true,
+        'ignoreUrls': true,
       }
     ],
     'global-require': 0,
