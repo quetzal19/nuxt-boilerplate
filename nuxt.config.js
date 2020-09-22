@@ -88,8 +88,10 @@ export default {
     // Doc: Дмитрий Куликов :)
     '~/modules/imageWebPConvert.js',
     // Подключение аналитики, если передан GOOGLE_ANALYTICS, но не передан GTM
+    // или включенна Электронная Торговля, даже при включённом gtm
     // https://github.com/nuxt-community/analytics-module
-    ...(process.env.GOOGLE_ANALYTICS && !process.env.GTM ? ['@nuxtjs/google-analytics'] : []),
+    ...(process.env.GOOGLE_ANALYTICS && (!process.env.GTM || process.env.GOOGLE_ANALYTICS_ECOMMERCE === 'true')
+      ? ['@nuxtjs/google-analytics'] : []),
   ],
 
   /*
@@ -103,7 +105,7 @@ export default {
   } : {}),
 
   /*
-   * Настройка гугл аналитики
+   * Настройка гугл аналитики, при выключенном gtm
    */
   ...(process.env.GOOGLE_ANALYTICS && !process.env.GTM ? {
     googleAnalytics: {
@@ -114,6 +116,27 @@ export default {
       },
       ecommerce: {
         enabled: process.env.GOOGLE_ANALYTICS_ECOMMERCE === 'true',
+      },
+      autoTracking: {
+        screenview: true,
+        page: true,
+      },
+      checkDuplicatedScript: true,
+    },
+  } : {}),
+
+  /*
+   * Настройка ЭТ через googleAnalytics, при включенном gtm
+   */
+  ...(process.env.GOOGLE_ANALYTICS && process.env.GTM && process.env.GOOGLE_ANALYTICS_ECOMMERCE === 'true' ? {
+    googleAnalytics: {
+      id: process.env.GOOGLE_ANALYTICS,
+      ecommerce: {
+        enabled: true,
+      },
+      autoTracking: {
+        screenview: false,
+        page: false,
       },
       checkDuplicatedScript: true,
     },

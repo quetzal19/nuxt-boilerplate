@@ -21,11 +21,11 @@ export const actions = {
  */
 function initMetrics(dispatch) {
   if (process.env.GTM) {
-    dispatch('metrics/initGtm');
+    dispatch('metrics/initGtm', process.env.GTM);
   } else if (process.env.GOOGLE_ANALYTICS) {
-    dispatch('metrics/initGoogleAnalytics');
+    dispatch('metrics/initGoogleAnalytics', process.env.GOOGLE_ANALYTICS);
   }
   if (process.env.YANDEX_METRICA) {
-    dispatch('metrics/initMetrika');
+    dispatch('metrics/initMetrika', process.env.YANDEX_METRICA);
   }
 }
