@@ -29,8 +29,9 @@ module.exports = {
     'global-require': 0,
     'import/no-dynamic-require': 0,
     'import/prefer-default-export': 0,
+    'import/no-unresolved': 'off',
     // don't require .vue extension when importing
-    'import/extensions': ['error', 'always', {
+    'import/extensions': ['warn', 'always', {
       js: 'never',
       vue: 'never',
     }],
