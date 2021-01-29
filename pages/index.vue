@@ -19,7 +19,7 @@
     <p
       class="p"
     >
-      current device: {{ $mq }}
+      <span>current device: {{ $mq }}</span>
     </p>
   </div>
 </template>
@@ -30,6 +30,9 @@
  */
 
 export default {
+  middleware({ store }) {
+    store.dispatch('test/FETCH_PHOTO');
+  },
   computed: {
     seoObject() {
       return {
@@ -50,10 +53,23 @@ export default {
 </script>
 <style lang="scss" scoped>
 .default {
+  @include flex-base;
+  @include typography-base;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
+
+  h1 {
+    margin-bottom: 16px;
+  }
+
+  p {
+    span {
+      color: blue;
+    }
+  }
 }
 </style>

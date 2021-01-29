@@ -53,6 +53,7 @@ export default {
   */
   plugins: [
     // Doc: https://github.com/AlexandreBonaventure/vue-mq
+    '@/plugins/axios',
     '@/plugins/device-detect',
     '@/plugins/set-meta',
     '@/plugins/generalComponents',

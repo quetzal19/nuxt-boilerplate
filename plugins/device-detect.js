@@ -3,6 +3,7 @@ import Vue from 'vue';
 // Doc: https://github.com/AlexandreBonaventure/vue-mq
 import VueMq from 'vue-mq';
 
+// eslint-disable-next-line func-names
 export default function ({ $ua }) {
   const mapRules = {
     [$ua.isFromSmartphone()]: 'sm',

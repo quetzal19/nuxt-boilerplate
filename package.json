@@ -16,7 +16,8 @@
     "generate": "nuxt generate",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "test": "jest",
-    "deploy": "./node_modules/.bin/env-cmd ./scripts/deploy.sh"
+    "deploy": "pm2 del boilerplate || true && yarn && yarn build && pm2 start npm --name boilerplate -- run start",
+    "deploy:update": "yarn && yarn build && npx pm2 reload boilerplate"
   },
   "lint-staged": {
     "*.{js,vue}": "yarn lint",
