@@ -1,6 +1,0 @@
-{
-  "baseURL": "/",
-  "proxy": {
-    "/frontend/v1": "/"
-  }
-}

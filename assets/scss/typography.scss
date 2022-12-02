@@ -1,0 +1,76 @@
+// значения для типографики следует устанавливать вместе с дизайнером при инициализации проекта
+
+@mixin get_typography($size, $fatness: "") {
+  font-family: PT Root UI, sans-serif;
+  font-size: #{$size}px;
+  line-height: calc_line-height($size);
+  font-weight: calc_fatness($fatness);
+  letter-spacing: calc_letter_spacing($size);
+}
+
+@function calc_fatness($fatness) {
+  $fatness-style: map-get((
+"700": 700,
+"bold": 600,
+"600": 600,
+"medium": 500,
+"500": 500,
+"regular": 400,
+"400": 400,
+"light": 300,
+"300": 300,
+), $fatness);
+
+  // Если передано значение шрифта вне системы, то передаём дефолтную толщину шрифта === 400/normal
+  @if $fatness == null {
+    @return 400;
+}
+
+  @return $fatness-style;
+}
+
+@function calc_line-height($size) {
+  $line-height: map-get((
+35: 40,
+29: 36,
+24: 28,
+20: 24,
+17: 24,
+15: 20,
+14: 20,
+13: 16,
+12: 16,
+11: 16,
+), $size);
+
+  // Если передано значение шрифта вне системы, то передаём дефолтную высоту строки === высоте шрифта
+  @if $line-height == null {
+    @warn "Значение размера шрифта #{$size}px - находится вне системы";
+
+    @return #{$size}px;
+}
+
+  @return #{$line-height}px;
+}
+
+@function calc_letter_spacing($size) {
+  $letter-spacing: map-get((
+35: -.012,
+29: -.012,
+24: -.01,
+20: 0,
+17: 0,
+15: 0,
+14: .01,
+13: .02,
+12: .02,
+11: .07,
+), $size);
+
+  // Если передано значение шрифта вне системы, то передаём дефолтную высоту строки === высоте шрифта
+  @if $letter-spacing == null {
+    @return #{.02}em;
+}
+
+  @return #{$letter-spacing}em;
+}

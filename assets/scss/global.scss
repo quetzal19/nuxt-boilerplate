@@ -1,0 +1,85 @@
+@import "mixin";
+
+html,
+body,
+#__nuxt,
+#__layout {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+body,
+#__nuxt,
+#__layout {
+  height: 100%;
+}
+
+html {
+  min-height: 100%;
+  font-size: 16px;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.page {
+  flex: 1;
+}
+
+#__layout {
+  background: #fff;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+ul {
+  @include ul-reset;
+}
+
+a {
+  @include a-reset;
+
+  &:active {
+    position: relative;
+    top: 1px;
+  }
+}
+
+._truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+._no-wrap {
+  white-space: nowrap;
+}
+
+.ellipsis-2-lines,
+.ellipsis-3-lines,
+.ellipsis-4-lines {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  line-height: 1rem; /* solved bug on Safari */
+}
+
+.ellipsis-3-lines {
+  -webkit-line-clamp: 3;
+}
+
+.ellipsis-4-lines {
+  -webkit-line-clamp: 4;
+}
