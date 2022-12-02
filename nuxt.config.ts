@@ -2,7 +2,7 @@
 export default defineNuxtConfig({
     app: {
         head: {
-            title: 'old-example',
+            title: 'nuxt-boilerplate',
             htmlAttrs: {
                 lang: 'en'
             },
@@ -15,6 +15,9 @@ export default defineNuxtConfig({
             link: [
                 { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
             ]
-        }
-    }
+        },
+    },
+    css: [],
+    plugins: [],
+    build: {},
 })
