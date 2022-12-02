@@ -2,6 +2,7 @@
 - [Базовый синтаксис .md файлов](https://www.markdownguide.org/basic-syntax/)
 - [Официальная документация NuxtJs](https://nuxt.com).
 - [Официальная документация VueJs 3x](https://vuejs.org/)
+- [Официальная документация pinia](https://pinia.vuejs.org/)
 
 ## Основная информация:
 - Проект написан на Nuxt3 (в базе Vue3).<br>
